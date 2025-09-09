@@ -18,25 +18,34 @@ import com.example.microservices.dto.CustomerDto;
 import com.example.microservices.dto.ResponseDto;
 import com.example.microservices.service.IAccountsService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 
 @RestController
+@Validated
 @RequestMapping(path = "/api", produces = {MediaType.APPLICATION_JSON_VALUE})
 @AllArgsConstructor
-@Validated
+@Tag(name = "Accounts APIs", description = "CRUD REST APIs for managing customer accounts")
 public class AccountsController {
 
     private IAccountsService accountsService;
 
     @PostMapping("/account")
+    @Operation(summary = "Create Account", description = "API to create a new Customer and Account")
+    @ApiResponse(responseCode = "201", description = "HTTPS Status 201 Created")
     public ResponseEntity<ResponseDto> createAccount(@Valid @RequestBody CustomerDto customerDto) {
         accountsService.createAccount(customerDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(new ResponseDto(AccountConstants.STATUS_201, AccountConstants.MESSAGE_201));
     }
 
     @GetMapping("/account")
+    @Operation(summary = "Get Account Details", description = "API to fetch account details using customer phone number")
+    @ApiResponse(responseCode = "200", description = "HTTPS Status 200 OK")
     public ResponseEntity<CustomerDto> getAccountDetails(@RequestParam
         @Pattern(regexp = "$|[0-9]{10}", message = "Phone number must be 10 digits")
         String phoneNumber) {
@@ -45,6 +54,11 @@ public class AccountsController {
     }
 
     @PutMapping("/account")
+    @Operation(summary = "Update Account Details", description = "API to update existing Customer and Account details using customer phone number")
+    @ApiResponses({
+        @ApiResponse(responseCode = "200", description = "HTTPS Status 200 OK"),
+        @ApiResponse(responseCode = "500", description = "HTTPS Status 500 INTERNAL SERVER ERROR")
+    })
     public ResponseEntity<ResponseDto> updateAccountDetails(@Valid @RequestBody CustomerDto customerDto) {
         boolean isUpdated = accountsService.updateAccountDetails(customerDto);
         if (isUpdated) {
@@ -55,6 +69,11 @@ public class AccountsController {
     }
 
     @DeleteMapping("/account")
+    @Operation(summary = "Delete Account", description = "API to delete existing Customer and Account using customer phone number")
+    @ApiResponses({
+        @ApiResponse(responseCode = "200", description = "HTTPS Status 200 OK"),
+        @ApiResponse(responseCode = "500", description = "HTTPS Status 500 INTERNAL SERVER ERROR")
+    })
     public ResponseEntity<ResponseDto> deleteAccount(@RequestParam String phoneNumber) {
         boolean isDeleted = accountsService.deleteAccount(phoneNumber);
         if (isDeleted) {
