@@ -1,6 +1,6 @@
-package com.example.microservices.entity;
+package com.example.accounts.entity;
 
-import com.example.microservices.dto.CustomerDto;
+import com.example.accounts.dto.CustomerDto;
 
 public class CustomerMapper {
     public static CustomerDto toDto(Customer customer) {

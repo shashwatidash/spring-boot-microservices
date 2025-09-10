@@ -1,4 +1,4 @@
-package com.example.microservices.entity;
+package com.example.accounts.entity;
 
 import java.time.LocalDateTime;
 

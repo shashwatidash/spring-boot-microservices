@@ -1,4 +1,4 @@
-package com.example.microservices.exceptions;
+package com.example.accounts.exceptions;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.example.microservices.dto.ErrorResponseDto;
+import com.example.accounts.dto.ErrorResponseDto;
 
 @ControllerAdvice
 public class GlobalExeptionHandler extends ResponseEntityExceptionHandler {
@@ -43,7 +43,6 @@ public class GlobalExeptionHandler extends ResponseEntityExceptionHandler {
             LocalDateTime.now());
         return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
-
 
     @ExceptionHandler(CustomerAlreadyExists.class)
     public ResponseEntity<ErrorResponseDto> handleCustomerAlreadyExistsException(CustomerAlreadyExists exception, WebRequest webRequest) {

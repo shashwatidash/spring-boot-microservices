@@ -1,4 +1,4 @@
-package com.example.microservices.dto;
+package com.example.accounts.dto;
 
 import java.time.LocalDateTime;
 import org.springframework.http.HttpStatus;

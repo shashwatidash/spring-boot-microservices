@@ -1,4 +1,4 @@
-package com.example.microservices.dto;
+package com.example.accounts.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;

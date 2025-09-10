@@ -1,6 +1,6 @@
-package com.example.microservices.service;
+package com.example.accounts.service;
 
-import com.example.microservices.dto.CustomerDto;
+import com.example.accounts.dto.CustomerDto;
 
 public interface IAccountsService {
     /*

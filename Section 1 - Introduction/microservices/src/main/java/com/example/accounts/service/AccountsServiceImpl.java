@@ -1,21 +1,21 @@
-package com.example.microservices.service;
+package com.example.accounts.service;
 
 import java.util.Optional;
 import java.util.Random;
 
 import org.springframework.stereotype.Service;
 
-import com.example.microservices.constants.AccountConstants;
-import com.example.microservices.dto.AccountsDto;
-import com.example.microservices.dto.CustomerDto;
-import com.example.microservices.entity.Accounts;
-import com.example.microservices.entity.AccountsMapper;
-import com.example.microservices.entity.Customer;
-import com.example.microservices.entity.CustomerMapper;
-import com.example.microservices.exceptions.CustomerAlreadyExists;
-import com.example.microservices.exceptions.ResourceNotFound;
-import com.example.microservices.repository.AccountsRepository;
-import com.example.microservices.repository.CustomerRepository;
+import com.example.accounts.constants.AccountConstants;
+import com.example.accounts.dto.AccountsDto;
+import com.example.accounts.dto.CustomerDto;
+import com.example.accounts.entity.Accounts;
+import com.example.accounts.entity.AccountsMapper;
+import com.example.accounts.entity.Customer;
+import com.example.accounts.entity.CustomerMapper;
+import com.example.accounts.exceptions.CustomerAlreadyExists;
+import com.example.accounts.exceptions.ResourceNotFound;
+import com.example.accounts.repository.AccountsRepository;
+import com.example.accounts.repository.CustomerRepository;
 
 import lombok.AllArgsConstructor;
 

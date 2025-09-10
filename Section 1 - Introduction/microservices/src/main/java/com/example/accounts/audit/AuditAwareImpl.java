@@ -1,4 +1,4 @@
-package com.example.microservices.audit;
+package com.example.accounts.audit;
 
 import java.util.Optional;
 

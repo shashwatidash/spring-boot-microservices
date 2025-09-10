@@ -1,6 +1,6 @@
-package com.example.microservices.entity;
+package com.example.accounts.entity;
 
-import com.example.microservices.dto.AccountsDto;
+import com.example.accounts.dto.AccountsDto;
 
 public class AccountsMapper {
     public static AccountsDto toDto(Accounts accounts) {

@@ -1,11 +1,11 @@
-package com.example.microservices.repository;
+package com.example.accounts.repository;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.microservices.entity.Customer;
+import com.example.accounts.entity.Customer;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {

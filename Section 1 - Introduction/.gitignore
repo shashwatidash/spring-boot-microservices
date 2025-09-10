@@ -24,6 +24,7 @@ Thumbs.db
 *.iml
 *.ipr
 .vscode/
+*/.vscode/
 
 ### NetBeans ###
 /nbproject/private/
