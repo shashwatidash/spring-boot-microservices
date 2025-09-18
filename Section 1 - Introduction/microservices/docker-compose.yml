@@ -1,0 +1,26 @@
+services:
+  accounts:
+    image: shashwatidash/accounts:ver1
+    container_name: accounts-microservice
+    ports:
+      - "8080:8080"
+    deploy:
+      resources:
+        limits:
+          memory: 700M
+    networks:
+      - udemy
+  loans:
+    image: shashwatidash/loans:ver1
+    container_name: loans-microservice
+    ports:
+      - "8090:8090"
+    deploy:
+      resources:
+        limits:
+          memory: 700M
+    networks:
+      - udemy
+networks:
+  udemy:
+    driver: bridge
